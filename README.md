@@ -44,6 +44,6 @@ var coinbase = web3Hpb.hpb.coinbase;
 var balance = web3Hpb.hpb.getBalance(coinbase);
 ```
 
-You can find more examples in the [`example`](https://github.com/yanranxiaoxiaoshu/web3/web3_hpb/example) directory.
+You can find more examples in the [`example`](https://github.com/yanranxiaoxiaoshu/web3/tree/master/web3_hpb/example) directory.
 
 # text
