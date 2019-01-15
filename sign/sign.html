@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript" src="compiled_lib.js">
+</script>
+<script type="text/javascript" src="sign.js">
+</script>
+<script type="text/javascript" >
+var msg="123";
+var signHex="0xf8431ba0876a30c3abb6b3ca621078c2ad2f2cb1b32e6b0f8fa511e512cbfe56878b3f75a0761c8a36cb08ff1fc3f62274ef05a46969412435edb5ddee3ba8223b7b2ef4f8";
+var signRet=signRetFromHex(signHex);
+var pubKeyBuffer=recovery(signRet.r,signRet.s,signRet.v,msg);
+var address=generateAddress(pubKeyBuffer);
+console.log("address:"+address);
+var isValid=verify(msg,signRet.r,signRet.s,pubKeyBuffer);
+console.log("isValid:"+isValid);
+
+var signToHexResult=signToHex(sign(msg,loadPrivateKeyFromHexString("0xc6fd13c89e318d4210016b2837e227b6cb67d2e41f89f7dd66233cda3b2f45c0")));
+console.log("signToHexResult:"+signToHexResult);
+</script>
+</body>
+</html>
